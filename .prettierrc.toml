@@ -1,0 +1,20 @@
+#
+# Prettier config
+#
+
+arrowParens = "always"
+bracketSpacing = true
+insertPragma = false
+jsxBracketSameLine = false
+printWidth = 80
+proseWrap = "always"
+requirePragma = false
+semi = false
+singleQuote = true
+tabWidth = 2
+trailingComma = "all"
+
+[[overrides]]
+files = "*.md"
+[overrides.options]
+proseWrap = "never"
