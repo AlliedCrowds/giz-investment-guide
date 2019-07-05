@@ -57,7 +57,7 @@ const common: webpack.Configuration = {
 
       {
         test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)\/(?!@alliedcrowds\/capital-finder-vuex)/,
+        exclude: /(?!@alliedcrowds\/capital-finder-vuex|@alliedcrowds\/capital-finder-api)(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {

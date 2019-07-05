@@ -12,13 +12,14 @@ Vue.use(Vuex)
 import kenyaData from './kenya-data'
 import nigeriaData from './nigeria-data'
 import sharedData from './shared-data'
+
 //
 // Data
 //
-var cfStoreFunction = require('../../../capital-finder-packages/capital-finder-vuex')
-  .default
 
-const cfStore = cfStoreFunction({
+import install from '@alliedcrowds/capital-finder-vuex'
+
+const cfStore = install({
   apiUrl: process.env.API_URL,
   apiKey: process.env.API_KEY,
   resultsPerPage: 50,
