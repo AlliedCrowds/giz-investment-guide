@@ -12,11 +12,11 @@ Vue.use(Vuex)
 import kenyaData from './kenya-data'
 import nigeriaData from './nigeria-data'
 import sharedData from './shared-data'
+import createPersistedState from 'vuex-persistedstate'
 
 //
 // Data
 //
-
 import install from '@alliedcrowds/capital-finder-vuex'
 
 const cfStore = install({
@@ -177,7 +177,7 @@ const store = new Vuex.Store({
       state.capitalType = capitalType
     },
   },
-  plugins: [cfPlugin],
+  plugins: [cfPlugin, createPersistedState()],
 })
 
 function recursiveNavBuild(groupKey, currentPage, pages, routeList) {

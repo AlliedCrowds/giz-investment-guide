@@ -13,7 +13,10 @@
               >.</span
             >
           </h5>
-          <div class="directoryMain midConScroll mCustomScrollbar">
+          <div
+            v-if="!this.$store.getters.isLoadingResults"
+            class="directoryMain midConScroll mCustomScrollbar"
+          >
             <div class="selectList selectListDropdown">
               <jquery-select
                 name="capitalType"
@@ -35,33 +38,28 @@
                   <table class="directoryTable">
                     <template
                       v-for="(number, index) of Array(
-                        Math.ceil(
-                          filterByCapitalType(currentResults).length / 3,
-                        ),
+                        Math.ceil(filterByCapitalType().length / 3),
                       )"
                     >
                       <tr>
                         <investor-profile-card
-                          v-for="(investor, index) of filterByCapitalType(
-                            currentResults,
-                          ).slice(index * 3, (index + 1) * 3)"
+                          v-for="(investor,
+                          index) of filterByCapitalType().slice(
+                            index * 3,
+                            (index + 1) * 3,
+                          )"
                           :provider="investor"
                           :key="index"
                         />
 
                         <td
                           v-if="
-                            (Math.ceil(
-                              filterByCapitalType(currentResults).length / 3,
-                            ) -
-                              1 ==
+                            (Math.ceil(filterByCapitalType().length / 3) - 1 ==
                               index) &
-                              (filterByCapitalType(currentResults).length % 3 !=
-                                0)
+                              (filterByCapitalType().length % 3 != 0)
                           "
                           v-for="blanks of Array(
-                            3 -
-                              (filterByCapitalType(currentResults).length % 3),
+                            3 - (filterByCapitalType().length % 3),
                           )"
                           class="blank"
                         >
@@ -98,6 +96,11 @@
                 >BACK</router-link
               >
             </div>
+          </div>
+          <div v-else>
+            <h5 class="subTitle text-center" style="padding-top: 150px;">
+              LOADING...
+            </h5>
           </div>
         </div>
       </div>
@@ -145,6 +148,17 @@ export default {
       'sectorSelected',
       'currentResults',
     ]),
+    sortedResults: function() {
+      var results = JSON.parse(JSON.stringify(this.currentResults))
+      results.sort(function(p1, p2) {
+        var p1id = p1.hasOwnProperty('id') ? p1.id : p1.provider_id
+        var p2id = p2.hasOwnProperty('id') ? p2.id : p2.provider_id
+        if (p1id < p2id) return -1
+        if (p1id > p2id) return 1
+        return 0
+      })
+      return results
+    },
     options() {
       return {
         filterValue: [
@@ -179,10 +193,10 @@ export default {
     onCapitalTypeSelectChange: function(filterValue) {
       this.$store.commit('setCapitalType', filterValue)
     },
-    filterByCapitalType: function(results) {
+    filterByCapitalType: function() {
       var selectedCapitalType = this.$store.state.capitalType
       if (selectedCapitalType) {
-        return results.filter((provider) => {
+        return this.sortedResults.filter((provider) => {
           if (provider.capital_type_code) {
             return (
               provider.capital_type_code.toLowerCase() == selectedCapitalType
@@ -197,7 +211,7 @@ export default {
           }
         })
       } else {
-        return results
+        return this.sortedResults
       }
     },
   },

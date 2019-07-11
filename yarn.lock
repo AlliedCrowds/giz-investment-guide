@@ -2,23 +2,27 @@
 # yarn lockfile v1
 
 
-"@alliedcrowds/capital-finder-api@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@alliedcrowds/capital-finder-api/-/capital-finder-api-0.1.0.tgz#b2baee480427fa694b78d5ca98915cdd659cb505"
-  integrity sha512-GsiLURu5+Je1E+fnDsarcWEW6GgzX+eBGkceK66P149GNzVuu74vJc8bGe2eSbgQcCjssVGemozHpB9im1Mliw==
+"@alliedcrowds/capital-finder-api@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@alliedcrowds/capital-finder-api/-/capital-finder-api-0.1.4.tgz#09bdeaa6b6e5b0e36216a872d21f175c53adc9a9"
+  integrity sha512-EJCUeJ6aZQx4+J+N55QrOA/fGvShDtcMLSGlUYaAj6A64k0InCtgPmERRUpr1rpO9kqayFwJge1TPB12riQmPQ==
   dependencies:
     axios "^0.18.0"
     dotenv "^6.2.0"
+    esm "^3.2.25"
     qs "^6.6.0"
+    regenerator-runtime "^0.13.2"
 
-"@alliedcrowds/capital-finder-vuex@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@alliedcrowds/capital-finder-vuex/-/capital-finder-vuex-0.2.2.tgz#24b3050690f3f6e528bc7b0832591269761bc872"
-  integrity sha512-YzzM22asog1HGuoUmiCghsvbTCb1UsX0X9wXMEBA2qT0vO6foitwaBR6uAsM5oM1q/+dBnxkGgM5ZPE/7If/QQ==
+"@alliedcrowds/capital-finder-vuex@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@alliedcrowds/capital-finder-vuex/-/capital-finder-vuex-0.4.0.tgz#b575583597a984ba597fa7a24ea2dd6f7065a2b0"
+  integrity sha512-Nm8dwbJjIf4XCjy3EFnjNA/8awPv6ntvWPkZs8Pkro0DmDXj3lgjDUf2m9smZGBUabV01n5GC/d0R6XESXXwpA==
   dependencies:
-    "@alliedcrowds/capital-finder-api" "^0.1.0"
+    "@alliedcrowds/capital-finder-api" "^0.1.4"
     axios "^0.18.0"
     dotenv "^6.2.0"
+    esm "^3.2.25"
+    regenerator-runtime "^0.13.2"
 
 "@babel/cli@^7.2.0":
   version "7.4.4"
@@ -3716,6 +3720,11 @@ deepmerge@^1.5.2:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-1.5.2.tgz#10499d868844cdad4fee0842df8c7f6f0c95a753"
   integrity sha512-95k0GDqvBjZavkuvzx/YqVLv/6YYa17fz6ILMSf7neqQITCPbnfEnQvEgMPNjH4kgobe7+WIL0yJEHku+H3qtQ==
 
+deepmerge@^2.1.0:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
+  integrity sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==
+
 default-gateway@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/default-gateway/-/default-gateway-4.2.0.tgz#167104c7500c2115f6dd69b0a536bb8ed720552b"
@@ -4377,6 +4386,11 @@ eslint@^5.10.0:
     strip-json-comments "^2.0.1"
     table "^5.2.3"
     text-table "^0.2.0"
+
+esm@^3.2.25:
+  version "3.2.25"
+  resolved "https://registry.yarnpkg.com/esm/-/esm-3.2.25.tgz#342c18c29d56157688ba5ce31f8431fbb795cc10"
+  integrity sha512-U1suiZ2oDVWv4zPO56S0NcR5QriEahGtdN2OR6FiOG4WJvcjBVFB0qI4+eKoWFH483PKGuLuu6V8Z4T5g63UVA==
 
 espree@^3.5.2, espree@^3.5.4:
   version "3.5.4"
@@ -10539,6 +10553,11 @@ shell-quote@^1.6.1:
     array-reduce "~0.0.0"
     jsonify "~0.0.0"
 
+shvl@^1.3.0:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/shvl/-/shvl-1.3.1.tgz#6c20a17b4a20b08e9f8cab60c50a92229fcc176e"
+  integrity sha512-+rRPP46hloYUAEImJcqprUgXu+05Ikqr4h4V+w5i2zJy37nAqtkQKufs3+3S2fDq6JNRrHMIQhB/Vaex+jgAAw==
+
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
@@ -11998,6 +12017,14 @@ vue@^2.5.21:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
+
+vuex-persistedstate@^2.5.4:
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/vuex-persistedstate/-/vuex-persistedstate-2.5.4.tgz#a19710ad7f9a08cea4e65fc585924d9fdac7384a"
+  integrity sha512-XYJhKIwO+ZVlTaXyxKxnplrJ88Fnvk5aDw753bxzRw5/yMKLQ6lq9CDCBex2fwZaQcLibhtgJOxGCHjy9GLSlQ==
+  dependencies:
+    deepmerge "^2.1.0"
+    shvl "^1.3.0"
 
 vuex-router-sync@^5.0.0:
   version "5.0.0"

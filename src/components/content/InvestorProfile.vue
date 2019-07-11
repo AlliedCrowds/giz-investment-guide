@@ -177,13 +177,32 @@ export default {
       type: Object,
     },
   },
+  data: function() {
+    return {
+      fullDataRequestSent: false,
+    }
+  },
   computed: {
     ...mapGetters(['provider']),
     selectedProvider: function() {
+      if (this.$store.getters.provider.id == this.$route.params.id) {
+        // already have full data
+        return this.$store.getters.provider
+      }
+
       var investor = this.$store.getters.currentResults.find((provider) => {
         var id = provider.provider_id ? provider.provider_id : provider.id
         return id == this.$route.params.id
       })
+
+      if (!investor.hasOwnProperty('id') && !this.fullDataRequestSent) {
+        // search investor is only part data return but fetch
+        this.fullDataRequestSent = true
+        this.$store.dispatch('fetchProviderById', {
+          provider_id: this.$route.params.id,
+        })
+        return investor
+      }
       return investor
     },
     getDirectoryReturnPath: function() {

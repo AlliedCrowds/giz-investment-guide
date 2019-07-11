@@ -58,10 +58,10 @@ export default {}
 
 @media only screen and (min-width: 480px) {
   .footer-cta {
-    top: -22px;
+    top: -27px;
     right: 50px;
     position: absolute;
-    font-size: 1.2em;
+    font-size: 1.45em;
   }
 }
 </style>

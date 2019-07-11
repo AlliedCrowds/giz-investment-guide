@@ -252,11 +252,6 @@ export default {
       if (this.selectionIsValid) {
         const { country, sector, fundingNeed, capitalType } = this.selected
         debug(this.$store)
-        this.$store.commit('setState', {
-          country,
-          sector,
-          fundingNeed,
-        })
         this.$store.commit('setCapitalType', capitalType)
         const path = ['', country, sector, fundingNeed, 'intro-directory'].join(
           '/',

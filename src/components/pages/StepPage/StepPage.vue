@@ -53,12 +53,29 @@ export default {
     var params = this.$route.path.split('/')
     params = params.splice(1)
     params.pop()
-    this.$store.commit('setState', {
-      country: params[0],
-      sector: params[1],
-      fundingNeed: params[2],
-    })
-    this.$store.dispatch('search')
+    if (
+      this.$store.state.country != params[0] ||
+      this.$store.state.sector != params[1] ||
+      this.$store.getters.currentResults.length == 0
+    ) {
+      this.$store.commit('setState', {
+        country: params[0],
+        sector: params[1],
+        fundingNeed: params[2],
+      })
+      this.$store.dispatch('search', {
+        embed: [
+          'provider_capital_types',
+          'provider_capital_types.capital_type',
+          'provider_sectors',
+          'provider_sectors.sector',
+          'provider_stats',
+          'provider_stats.stat',
+          'provider_descriptions',
+          'provider_descriptions.description',
+        ],
+      })
+    }
   },
 }
 </script>

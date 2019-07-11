@@ -57,12 +57,13 @@ const common: webpack.Configuration = {
 
       {
         test: /\.m?js$/,
-        exclude: /(?!@alliedcrowds\/capital-finder-vuex|@alliedcrowds\/capital-finder-api)(node_modules|bower_components)/,
+        exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
             plugins: ['@babel/plugin-proposal-object-rest-spread'],
+            sourceType: 'unambiguous',
           },
         },
       },
